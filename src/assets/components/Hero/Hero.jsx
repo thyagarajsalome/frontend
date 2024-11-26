@@ -2,6 +2,13 @@ import React from "react";
 import "./Hero.css";
 
 const Hero = () => {
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero-content">
@@ -13,9 +20,12 @@ const Hero = () => {
           in creating functional web applications, apps, and interactive 3D web
           experiences.
         </p>
-        <a href="#projects" className="hero-button">
+        <button
+          onClick={() => handleScrollToSection("projects")}
+          className="hero-button"
+        >
           View My Work
-        </a>
+        </button>
       </div>
     </section>
   );

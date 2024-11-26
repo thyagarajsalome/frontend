@@ -59,33 +59,6 @@ const Projects = () => {
           <i className="fas fa-external-link-alt"></i> 3D Projects
         </a>
       </div>
-      <div className="project-card">
-        <h3>Modules</h3>
-        <a
-          href="https://toolwebsite.in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-secondary"
-        >
-          <i className="fas fa-external-link-alt"></i> Tool Website
-        </a>
-        <a
-          href="https://vegadesign.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-secondary"
-        >
-          <i className="fas fa-external-link-alt"></i> Vega Design
-        </a>
-        <a
-          href="https://vegatranslate.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-secondary"
-        >
-          <i className="fas fa-external-link-alt"></i> Vega Translate
-        </a>
-      </div>
     </div>
   );
 };
