@@ -16,9 +16,11 @@ const Hero = () => {
           Welcome to <span className="highlight">My Portfolio</span>
         </h1>
         <p className="hero-subtitle">
-          I am a Frontend Developer and 3D Artist. As a developer, I specialize
-          in creating functional web applications, apps, and interactive 3D web
-          experiences.
+          Hello! I'm Thyagaraj, a passionate Frontend Developer and 3D Artist. I
+          specialize in crafting functional and visually engaging web
+          applications, intuitive mobile apps, and immersive 3D web experiences.
+          My work combines creativity with technical expertise to bring ideas to
+          life in the digital space.
         </p>
         <button
           onClick={() => handleScrollToSection("projects")}
