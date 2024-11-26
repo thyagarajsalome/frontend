@@ -1,0 +1,77 @@
+/* General Styles for Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #202124;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent Color for Section and Paragraphs */
+.section,
+p {
+  color: #1a73e8; /* Light Google Blue */
+}
+
+/* Content Styles */
+.hero-content {
+  z-index: 1;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-title .highlight {
+  color: #bb86fc; /* Soft accent color */
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #5f6368; /* Slightly lighter gray */
+}
+
+/* Button Styles */
+.hero-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #bb86fc, #03dac6);
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background: linear-gradient(135deg, #03dac6, #bb86fc);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

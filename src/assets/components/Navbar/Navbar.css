@@ -1,0 +1,96 @@
+/* Navbar.css */
+
+/* General Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f9f9f9; /* Light background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar-logo a {
+  color: #333; /* Darker text for contrast */
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  color: #bb86fc; /* Accent color on hover */
+}
+
+/* Links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+}
+
+.navbar-links a {
+  color: #555; /* Slightly lighter text color */
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px; /* Padding for better click area */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.navbar-links a:hover {
+  color: #fff; /* White text on hover */
+  background-color: #bb86fc; /* Background color change on hover */
+  border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none; /* Hidden by default */
+  font-size: 1.8rem;
+}
+
+/* Hamburger Menu Styling (Mobile) */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show menu icon on mobile */
+    color: #333; /* Dark icon color */
+    cursor: pointer;
+  }
+
+  .navbar-links {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: calc(100% + 10px); /* Position below navbar with some spacing */
+    right: -10px; /* Align with the right edge of the navbar */
+    background-color: #ffffff; /* Light background for dropdown */
+    padding: 15px; /* Padding around links */
+    border-radius: 10px; /* Rounded corners for dropdown menu */
+  }
+
+  .navbar-links.open {
+    display: flex; /* Show links when open */
+    animation: slideIn 0.3s ease forwards; /* Slide-in animation when opened */
+  }
+
+  .navbar-links li {
+    margin-bottom: 10px; /* Space between links in dropdown menu */
+  }
+
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0.5;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

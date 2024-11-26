@@ -1,0 +1,74 @@
+/* Base styling */
+.experience-section {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.role {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.details {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.tasks {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.tasks li {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .timeline-item {
+    padding: 15px;
+  }
+
+  .role {
+    font-size: 1.25rem;
+  }
+}

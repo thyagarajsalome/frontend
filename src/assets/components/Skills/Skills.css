@@ -1,0 +1,74 @@
+/* General Styles for Skills Section */
+.skills {
+  padding: 50px 20px;
+  color: #656266; /* Darker text for readability */
+  text-align: center;
+}
+
+/* Skills Title */
+.skills-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #242024; /* Light Google Blue */
+}
+
+/* Grid Layout for Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Skill Category Styles */
+.skill-category {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08); /* Slight transparency */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.253); /* Soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.252); /* Slightly more pronounced shadow on hover */
+}
+
+/* Category Title */
+.category-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #bb86fc; /* Light Google Blue */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+/* Skill List */
+.skill-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-category li {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #5f6368; /* Lighter gray for text */
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 2rem;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+  }
+
+  .skill-category {
+    padding: 15px;
+  }
+}
