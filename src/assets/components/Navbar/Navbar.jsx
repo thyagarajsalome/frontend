@@ -42,7 +42,7 @@ const Navbar = () => {
           <a onClick={() => handleScrollToSection("experience")}>Experience</a>
         </li>
         <li>
-          <a onClick={() => handleScrollToSection("contact")}>Contact</a>
+          <a onClick={() => handleScrollToSection("home")}>Contact</a>
         </li>
       </ul>
     </nav>

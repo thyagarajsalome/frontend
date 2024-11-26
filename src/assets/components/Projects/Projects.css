@@ -15,7 +15,7 @@
   padding: 20px;
   margin: 10px; /* Space between cards */
   width: calc(100% - 40px); /* Full width minus margins on small screens */
-  max-width: 400px; /* Responsive max width */
+  max-width: auto; /* Responsive max width */
 }
 
 .project-card h3 {
