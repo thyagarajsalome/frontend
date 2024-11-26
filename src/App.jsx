@@ -9,14 +9,20 @@ import Footer from "./assets/components/Footer/Footer";
 const App = () => {
   return (
     <div>
-      <div>
-        <Navbar />
+      <Navbar />
+      <div id="home">
         <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Footer />
       </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="experience">
+        <Experience />
+      </div>
+      <Footer />
     </div>
   );
 };

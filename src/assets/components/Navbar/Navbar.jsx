@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from "react";
 import "./Navbar.css";
 
@@ -9,10 +8,18 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleScrollToSection = (id) => {
+    setMenuOpen(false); // Close the menu (for mobile view)
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a href="#home">TM</a>
+        <a onClick={() => handleScrollToSection("home")}>TM</a>
       </div>
       <div className="menu-icon" onClick={toggleMenu}>
         {menuOpen ? (
@@ -23,24 +30,19 @@ const Navbar = () => {
       </div>
       <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <li>
-          <a href="#home" onClick={toggleMenu}>
-            Home
-          </a>
+          <a onClick={() => handleScrollToSection("home")}>Home</a>
         </li>
         <li>
-          <a href="#skills" onClick={toggleMenu}>
-            Skills
-          </a>
+          <a onClick={() => handleScrollToSection("skills")}>Skills</a>
         </li>
         <li>
-          <a href="#projects" onClick={toggleMenu}>
-            Projects
-          </a>
+          <a onClick={() => handleScrollToSection("projects")}>Projects</a>
         </li>
         <li>
-          <a href="#contact" onClick={toggleMenu}>
-            Contact
-          </a>
+          <a onClick={() => handleScrollToSection("experience")}>Experience</a>
+        </li>
+        <li>
+          <a onClick={() => handleScrollToSection("contact")}>Contact</a>
         </li>
       </ul>
     </nav>

@@ -4,7 +4,6 @@ import "./Skills.css";
 const Skills = () => {
   return (
     <section className="skills">
-      {/* <h2 className="skills-title">My Skills</h2> */}
       <div className="skills-grid">
         <div className="skill-category">
           <h3 className="category-title">Frontend Developer</h3>

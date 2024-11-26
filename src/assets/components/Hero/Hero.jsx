@@ -13,7 +13,7 @@ const Hero = () => {
           in creating functional web applications, apps, and interactive 3D web
           experiences.
         </p>
-        <a href="#projects" className="hero-button">
+        <a href="" className="hero-button">
           View My Work
         </a>
       </div>
