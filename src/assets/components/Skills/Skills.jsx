@@ -30,7 +30,7 @@ const Skills = () => {
           <h3 className="category-title">Other Skills</h3>
           <ul>
             <li>AutoCAD Drafting</li>
-            <li>3D Modleing low-high poly</li>
+            <li>3D Modeling low-high poly</li>
             <li>3ds Max & Blender</li>
             <li>Vray Rendering</li>
             <li>Photoshop</li>
