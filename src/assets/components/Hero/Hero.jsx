@@ -13,14 +13,14 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <h1 className="hero-title">
-          Welcome to <span className="highlight">My Portfolio</span>
+          Welcome to My <span className="highlight">Portfolio</span>
         </h1>
         <p className="hero-subtitle">
-          Hello! I'm Thyagaraj, a passionate Frontend Developer and 3D Artist. I
-          specialize in crafting functional and visually engaging web
-          applications, intuitive mobile apps, and immersive 3D web experiences.
-          My work combines creativity with technical expertise to bring ideas to
-          life in the digital space.
+          Hello! I’m Thyagaraj, a dedicated Frontend Developer and 3D Artist. I
+          specialize in creating visually captivating and highly functional web
+          applications, intuitive user experiences, and immersive 3D web
+          environments. Blending creativity with technical proficiency, I bring
+          innovative ideas to life in the digital realm.
         </p>
         <button
           onClick={() => handleScrollToSection("projects")}

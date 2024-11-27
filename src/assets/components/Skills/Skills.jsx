@@ -34,7 +34,6 @@ const Skills = () => {
             <li>3ds Max & Blender</li>
             <li>Vray Rendering</li>
             <li>Photoshop</li>
-            <li>Filmora Video Editing</li>
           </ul>
         </div>
       </div>
