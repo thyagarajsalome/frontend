@@ -31,9 +31,41 @@ const Projects = () => {
         >
           <i className="fas fa-external-link-alt"></i> Vega Translate
         </a>
+        <a
+          href="https://thyagarajsalome.github.io/emailSub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-secondary"
+        >
+          <i className="fas fa-external-link-alt"></i>Email Subscription
+        </a>
+        <a
+          href="https://thyagarajsalome.github.io/Notes-app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-secondary"
+        >
+          <i className="fas fa-external-link-alt"></i>Notes App
+        </a>
+        <a
+          href="https://thyagarajsalome.github.io/quiz-app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-secondary"
+        >
+          <i className="fas fa-external-link-alt"></i>Quiz App
+        </a>
+        <a
+          href="https://thyagarajsalome.github.io/image-Search/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-secondary"
+        >
+          <i className="fas fa-external-link-alt"></i>Image Search
+        </a>
       </div>
       <div className="project-card">
-        <h3>3D Inter-active</h3>
+        <h3>3D Interactive</h3>
         <a
           href="https://teapot-3d.vercel.app/"
           target="_blank"
