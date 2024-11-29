@@ -31,7 +31,7 @@ const Experience = () => {
       ],
     },
     {
-      role: "3D Designer",
+      role: "AutoCAD. Computer-Aided Design, Draughtsman",
       organization: "IMG Worlds of Adventure Dubai",
       period: "Nov 2013 - Jun 2017",
       tasks: [
