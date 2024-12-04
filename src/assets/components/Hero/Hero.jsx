@@ -16,7 +16,7 @@ const Hero = () => {
           Welcome to My <span className="highlight">Portfolio</span>
         </h1>
         <p className="hero-subtitle">
-          Hello! I’m Thyagaraj, a dedicated Frontend Developer and 3D Artist. I
+          Hello! I’m Thyagaraj, a dedicated <span>Frontend Developer</span> and 3D Artist. I
           specialize in creating visually captivating and highly functional web
           applications, intuitive user experiences, and immersive 3D web
           environments. Blending creativity with technical proficiency, I bring
