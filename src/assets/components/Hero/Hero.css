@@ -10,6 +10,12 @@
   overflow: hidden;
 }
 
+.hero span {
+  color: #bb86fc;
+
+  font-weight: 600;
+}
+
 /* Accent Color for Section and Paragraphs */
 .section,
 p {
