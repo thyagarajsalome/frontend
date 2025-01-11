@@ -90,6 +90,14 @@ const Projects = () => {
         >
           <i className="fas fa-external-link-alt"></i> 3D Projects
         </a>
+        <a
+          href="https://interactive-3dshoe.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-secondary"
+        >
+          <i className="fas fa-external-link-alt"></i> Interactive 3D Shoe
+        </a>
       </div>
     </div>
   );
