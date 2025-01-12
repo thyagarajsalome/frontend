@@ -1,110 +1,169 @@
 /* Navbar.css */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --nav-bg: #f8f9fa;
+  --hover-bg: #bb86fc;
+  --hover-text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --active-link: #0077b5;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
 
-/* General Styles */
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --nav-bg: #2d2d2d;
+  --hover-bg: #9b66df;
+  --hover-text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --active-link: #2196f3;
+}
+
+/* Navbar Container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: #f9f9f9; /* Light background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  padding: 1rem 2rem;
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  box-shadow: 0 2px 8px var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all var(--transition-speed) ease;
 }
 
-/* Logo */
+/* Logo Styles */
 .navbar-logo a {
-  color: #333; /* Darker text for contrast */
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed) ease;
 }
 
 .navbar-logo a:hover {
-  color: #bb86fc; /* Accent color on hover */
+  color: var(--hover-bg);
 }
 
-/* Links */
+/* Controls Container */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-speed) ease;
+  border-radius: var(--border-radius);
+}
+
+/* .theme-toggle:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+} */
+
+.theme-toggle:focus {
+  outline: none;
+  /* border-color: var(--hover-bg); */
+}
+
+/* Navigation Links */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 20px; /* Space between links */
+  gap: 1.5rem;
   margin: 0;
+  padding: 0;
 }
 
 .navbar-links a {
-  color: #555; /* Slightly lighter text color */
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1rem;
-  padding: 5px; /* Padding for better click area */
-  transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+  padding: 0.2rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
   cursor: pointer;
 }
 
 .navbar-links a:hover {
-  color: #fff; /* White text on hover */
-  background-color: #bb86fc; /* Background color change on hover */
-  border-radius: 5px; /* Rounded corners for hover effect */
+  color: var(--hover-text);
+  background-color: var(--hover-bg);
 }
 
-/* Menu Icon */
+.navbar-links a.active {
+  color: var(--hover-text);
+  background-color: var(--active-link);
+}
+
+/* Mobile Menu Icon */
 .menu-icon {
-  display: none; /* Hidden by default */
-  font-size: 1.8rem;
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
 }
 
-/* Hamburger Menu Styling (Mobile) */
+.menu-icon:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
   .menu-icon {
-    display: block; /* Show menu icon on mobile */
-    color: #333; /* Dark icon color */
-    cursor: pointer;
+    display: flex;
+    align-items: center;
   }
 
   .navbar-links {
-    display: none; /* Hidden by default */
-    flex-direction: column; /* Stack links vertically */
+    display: none;
     position: absolute;
-    top: calc(100% + 10px); /* Position below navbar with some spacing */
-    right: -10px; /* Align with the right edge of the navbar */
-    background-color: #ffffff; /* Light background for dropdown */
-    padding: 15px; /* Padding around links */
-    border-radius: 10px; /* Rounded corners for dropdown menu */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    box-shadow: 0 4px 8px var(--shadow);
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .navbar-links.open {
-    display: flex; /* Show links when open */
-    animation: slideIn 0.3s ease forwards; /* Slide-in animation when opened */
+    display: flex;
+    animation: slideDown var(--transition-speed) ease forwards;
   }
 
-  .navbar-links li {
-    margin-bottom: 10px; /* Space between links in dropdown menu */
-  }
-
-  /* Animations */
-  @keyframes slideIn {
-    from {
-      opacity: 0.5;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .navbar-links a {
+    /* padding: 0.75rem 1rem; */
+    width: 100%;
+    text-align: center;
   }
 }
 
-/* General active link styling */
-.navbar-links a.active {
-  color: #fff;
-  background-color: #0077b5; /* Highlight active link */
-  border-radius: 5px;
-}
-
-/* Dropdown-specific active link styling (Mobile) */
-.navbar-links.open a.active {
-  color: #fff;
-  background-color: #333; /* Darker background for dropdown */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
