@@ -4,98 +4,48 @@ import { OrbitControls, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import "./HeroSection.css";
 
-const CustomShape = () => {
-  const groupRef = useRef();
-  const twistedTorusRef = useRef();
+const Sphere = () => {
+  const meshRef = useRef();
 
   useFrame((state, delta) => {
-    if (groupRef.current) {
-      // Rotate the entire group
-      groupRef.current.rotation.y += delta * 0.2;
-      groupRef.current.rotation.x += delta * 0.1;
-    }
-    if (twistedTorusRef.current) {
-      // Add pulsing effect to the inner shape
-      twistedTorusRef.current.scale.x =
-        1 + Math.sin(state.clock.elapsedTime) * 0.1;
-      twistedTorusRef.current.scale.y =
-        1 + Math.cos(state.clock.elapsedTime) * 0.1;
+    if (meshRef.current) {
+      // Smoother rotation using delta time
+      meshRef.current.rotation.y += delta * 0.5;
+      // Add subtle floating motion
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
     }
   });
 
   return (
-    <group ref={groupRef}>
-      {/* Outer ring */}
-      <mesh
-        castShadow
-        receiveShadow
-        position={[0, 0, 0]}
-        rotation={[Math.PI / 4, 0, 0]}
-      >
-        <torusGeometry args={[2.5, 0.2, 16, 100]} />
-        <meshPhysicalMaterial
-          color="#4444ff"
-          metalness={0.9}
-          roughness={0.1}
-          envMapIntensity={2}
-          clearcoat={1}
-          transmission={0.5}
-          transparent={true}
-          opacity={0.9}
-        />
-      </mesh>
-
-      {/* Inner twisted torus */}
-      <mesh
-        ref={twistedTorusRef}
-        castShadow
-        receiveShadow
-        position={[0, 0, 0]}
-        rotation={[0, Math.PI / 2, 0]}
-      >
-        <torusKnotGeometry args={[1.5, 0.3, 100, 16, 2, 3]} />
-        <meshPhysicalMaterial
-          color="#00ffff"
-          metalness={0.8}
-          roughness={0.05}
-          envMapIntensity={3}
-          clearcoat={1}
-          transmission={0.6}
-          transparent={true}
-          opacity={0.8}
-          ior={2.4}
-          thickness={0.5}
-          attenuationColor="#00ffff"
-          attenuationDistance={0.5}
-        />
-      </mesh>
-
-      {/* Decorative spheres */}
-      {[0, Math.PI / 2, Math.PI, Math.PI * 1.5].map((angle, index) => (
-        <mesh
-          key={index}
-          position={[Math.cos(angle) * 2.5, Math.sin(angle) * 2.5, 0]}
-          castShadow
-          receiveShadow
-        >
-          <dodecahedronGeometry args={[0.3, 1]} />
-          <meshPhysicalMaterial
-            color="#0088ff"
-            metalness={1}
-            roughness={0}
-            envMapIntensity={2}
-            clearcoat={1}
-          />
-        </mesh>
-      ))}
-    </group>
+    <mesh ref={meshRef} castShadow receiveShadow>
+      <sphereGeometry args={[2, 32, 32]} />{" "}
+      {/* Higher segment count for smoother sphere */}
+      <meshPhysicalMaterial
+        color="#0088ff"
+        metalness={0.9}
+        roughness={0.05} // Decreased for more shine
+        envMapIntensity={2} // Increased for better reflections
+        clearcoat={1}
+        clearcoatRoughness={0.1}
+        transmission={0.6} // Increased for more transparency
+        transparent={true}
+        opacity={0.9}
+        ior={2.4} // Added index of refraction
+        thickness={0.5} // Added material thickness
+        attenuationColor="#0088ff" // Added color attenuation
+        attenuationDistance={0.5}
+      />
+    </mesh>
   );
 };
 
 const Scene = () => {
   return (
     <>
+      {/* Ambient light for base illumination */}
       <ambientLight intensity={0.2} />
+
+      {/* Main directional light */}
       <directionalLight
         position={[10, 10, 5]}
         intensity={1.5}
@@ -103,6 +53,8 @@ const Scene = () => {
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
+
+      {/* Accent lights for better sparkle */}
       <pointLight position={[-10, -10, -5]} intensity={3} color="#0055ff" />
       <spotLight
         position={[0, 5, 0]}
@@ -112,16 +64,18 @@ const Scene = () => {
         penumbra={0.5}
         distance={20}
       />
+
+      {/* Subtle rim light */}
       <pointLight position={[0, 0, -8]} intensity={0.5} color="#ffffff" />
 
       <Environment preset="sunset" />
 
-      <CustomShape />
+      <Sphere />
 
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        enableRotate={true}
+        enableRotate={false}
         minDistance={5}
         maxDistance={20}
         rotateSpeed={0.5}
