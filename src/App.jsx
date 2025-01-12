@@ -12,10 +12,10 @@ const App = () => {
     <div>
       <Navbar />
       <div id="home">
+        <div>
+          <HeroSection />
+        </div>
         <Hero />
-      </div>
-      <div>
-        <HeroSection />
       </div>
 
       <div id="skills">
