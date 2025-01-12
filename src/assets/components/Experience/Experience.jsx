@@ -57,16 +57,23 @@ const Experience = () => {
         <h2 className="section-title">Work Experience</h2>
         <div className="timeline">
           {experiences.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <h3 className="role">{exp.role}</h3>
-              <p className="details">
-                {exp.organization} | {exp.period}
-              </p>
-              <ul className="tasks">
-                {exp.tasks.map((task, idx) => (
-                  <li key={idx}>{task}</li>
-                ))}
-              </ul>
+            <div
+              key={index}
+              className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+            >
+              <div className="timeline-content">
+                <div className="time-marker"></div>
+                <h3 className="role">{exp.role}</h3>
+                <div className="organization">
+                  <span className="company">{exp.organization}</span>
+                  <span className="period">{exp.period}</span>
+                </div>
+                <ul className="tasks">
+                  {exp.tasks.map((task, idx) => (
+                    <li key={idx}>{task}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

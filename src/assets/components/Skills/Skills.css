@@ -1,74 +1,124 @@
-/* General Styles for Skills Section */
 .skills {
-  padding: 50px 20px;
-  color: #656266; /* Darker text for readability */
-  text-align: center;
+  padding: 4rem 2rem;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-/* Skills Title */
-.skills-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #242024; /* Light Google Blue */
-}
-
-/* Grid Layout for Skills */
 .skills-grid {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
-/* Skill Category Styles */
 .skill-category {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.08); /* Slight transparency */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.253); /* Soft shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .skill-category:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.252); /* Slightly more pronounced shadow on hover */
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
-/* Category Title */
 .category-title {
+  color: var(--text-primary);
   font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #bb86fc; /* Light Google Blue */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 10px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-color);
 }
 
-/* Skill List */
-.skill-category ul {
+.skills-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.skill-category li {
-  font-size: 1rem;
-  margin: 10px 0;
-  color: #5f6368; /* Lighter gray for text */
-  transition: color 0.3s ease;
+.skill-item {
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  transition: color 0.3s;
+}
+
+.skill-item:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.skill-item:hover {
+  color: var(--accent-color);
+}
+
+/* Dark theme variables */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --accent-color: #3182ce;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme overrides */
+:root.dark {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --accent-color: #63b3ed;
+  --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .skills-title {
-    font-size: 2rem;
+@media screen and (max-width: 768px) {
+  .skills {
+    padding: 3rem 1rem;
   }
 
-  .category-title {
-    font-size: 1.2rem;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
   .skill-category {
-    padding: 15px;
+    padding: 1.25rem;
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Animation for theme transition */
+.skills,
+.skill-category,
+.category-title,
+.skill-item {
+  transition: all 0.3s ease-in-out;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --accent-color: #0066cc;
+  }
+
+  :root.dark {
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --accent-color: #66b3ff;
   }
 }
