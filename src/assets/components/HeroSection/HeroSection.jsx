@@ -1,140 +1,79 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 import * as THREE from "three";
 import "./HeroSection.css";
 
 const HeroSection = () => {
-  // Material definitions with corrected properties
-  const materials = {
-    wood: {
-      roughness: 0.8,
-      metalness: 0.0,
-      color: "#945A3C",
-    },
-    metal: {
-      roughness: 0.2,
-      metalness: 0.8,
-      color: "#A0A0A0",
-      envMapIntensity: 1,
-    },
-    glass: {
-      roughness: 0,
-      metalness: 0.1,
-      transmission: 0.9,
-      transparent: true,
-      color: "#FFFFFF",
-      clearcoat: 1,
-      clearcoatRoughness: 0,
-    },
-    copper: {
-      roughness: 0.3,
-      metalness: 1,
-      color: "#B87333",
-      envMapIntensity: 1,
-    },
-  };
+  const Diamond = () => {
+    const meshRef = useRef();
 
-  const shapes = [
-    { name: "Square-based Pyramid", position: [-3, 1, 1], material: "metal" },
-    { name: "Triangular Prism", position: [-1, 1, 0], material: "wood" },
-    { name: "Cone", position: [1, 1, 0], material: "glass" },
-    { name: "Cuboid", position: [3, 1, 0], material: "copper" },
-    { name: "Tetrahedron", position: [-3, -1, 0], material: "metal" },
-    { name: "Cube", position: [-1, -1, 0], material: "glass" },
-    { name: "Cylinder", position: [1, -1, 0], material: "wood" },
-    { name: "Sphere", position: [3, -1, 0], material: "copper" },
-  ];
+    // Rotate the diamond
+    useFrame((state) => {
+      if (meshRef.current) {
+        meshRef.current.rotation.y += 0.005;
+      }
+    });
+
+    return (
+      <group>
+        {/* Glowing diamond */}
+        <mesh ref={meshRef} castShadow receiveShadow>
+          <octahedronGeometry args={[2, 0]} />
+          <meshPhysicalMaterial
+            color="#0088ff"
+            metalness={0.9}
+            roughness={0.1}
+            envMapIntensity={1}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
+            transmission={0.5}
+            transparent={true}
+            opacity={1}
+          />
+        </mesh>
+
+        {/* Glow effect */}
+        <mesh scale={[1.2, 1.2, 1.2]}>
+          <octahedronGeometry args={[2, 0]} />
+          <meshBasicMaterial
+            color="#00ffff"
+            transparent={true}
+            opacity={0.1}
+            side={THREE.BackSide}
+          />
+        </mesh>
+      </group>
+    );
+  };
 
   const Scene = () => {
     return (
       <>
         <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
-        <pointLight position={[-10, -10, -5]} intensity={1} />
-        <hemisphereLight intensity={0.3} groundColor="#000000" />
+        <directionalLight position={[10, 10, 5]} intensity={1.5} castShadow />
+        <pointLight position={[-10, -10, -5]} intensity={5} />
+        <spotLight
+          position={[0, 5, 0]}
+          intensity={0.8}
+          color="#00ffff"
+          angle={0.6}
+          penumbra={0.5}
+        />
 
         <Environment preset="sunset" />
 
-        {shapes.map((shape, index) => {
-          const materialProps = materials[shape.material];
-
-          return (
-            <group key={index} position={shape.position}>
-              {shape.name === "Square-based Pyramid" && (
-                <mesh rotation={[0, 0, Math.PI]} castShadow receiveShadow>
-                  <coneGeometry args={[1, 1.5, 4]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Triangular Prism" && (
-                <mesh
-                  rotation={[Math.PI / 2, Math.PI / 6, 0]}
-                  castShadow
-                  receiveShadow
-                >
-                  <cylinderGeometry args={[0.7, 0.7, 1.5, 3]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Cone" && (
-                <mesh rotation={[0, 0, Math.PI]} castShadow receiveShadow>
-                  <coneGeometry args={[0.7, 1.5, 32]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Cuboid" && (
-                <mesh castShadow receiveShadow>
-                  <boxGeometry args={[2, 0.8, 0.8]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Tetrahedron" && (
-                <mesh rotation={[0, Math.PI / 4, 0]} castShadow receiveShadow>
-                  <tetrahedronGeometry args={[0.8]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Cube" && (
-                <mesh
-                  rotation={[Math.PI / 4, Math.PI / 4, 0]}
-                  castShadow
-                  receiveShadow
-                >
-                  <boxGeometry args={[1, 1, 1]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Cylinder" && (
-                <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
-                  <cylinderGeometry args={[0.7, 0.7, 1.5, 32]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-
-              {shape.name === "Sphere" && (
-                <mesh castShadow receiveShadow>
-                  <sphereGeometry args={[0.7, 32, 32]} />
-                  <meshPhysicalMaterial {...materialProps} />
-                </mesh>
-              )}
-            </group>
-          );
-        })}
+        <Diamond />
 
         <OrbitControls
           enableZoom={false}
           enablePan={false}
-          enableRotate={true}
+          enableRotate={false}
           minDistance={5}
           maxDistance={20}
           rotateSpeed={0.5}
+          autoRotate={true}
+          autoRotateSpeed={1}
         />
       </>
     );
@@ -143,8 +82,8 @@ const HeroSection = () => {
   return (
     <div className="hero-section">
       <Canvas
-        camera={{ position: [0, 0, 15], fov: 20 }}
-        style={{ background: "#f5f5f5" }}
+        camera={{ position: [0, 0, 10], fov: 25 }}
+        style={{ background: "black" }}
         shadows
       >
         <Suspense fallback={null}>
