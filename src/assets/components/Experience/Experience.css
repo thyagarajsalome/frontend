@@ -153,12 +153,12 @@
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .timeline::before {
-    left: 2rem;
+    left: -1rem;
   }
 
   .timeline-content {
     width: calc(100% - 4rem);
-    margin-left: 4rem !important;
+    margin-left: 1rem !important;
   }
 
   .time-marker {
