@@ -161,11 +161,11 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--nav-bg);
+    /* background-color: var(--nav-bg); */
     padding: 1rem;
-    box-shadow: 0 4px 8px var(--shadow);
+    /* box-shadow: 0 4px 8px var(--shadow); */
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
   }
 
   .navbar-links.open {
