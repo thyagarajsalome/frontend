@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a onClick={() => handleScrollToSection("home")}>TM</a>
+        <a onClick={() => handleScrollToSection("contact")}>TM</a>
       </div>
       <div className="navbar-controls">
         <button
