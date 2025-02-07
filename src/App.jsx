@@ -5,16 +5,13 @@ import Skills from "./assets/components/Skills/Skills";
 import Projects from "./assets/components/Projects/Projects";
 import Experience from "./assets/components/Experience/Experience";
 import Footer from "./assets/components/Footer/Footer";
-import HeroSection from "./assets/components/HeroSection/HeroSection";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div id="home">
-        <div>
-          <HeroSection />
-        </div>
+        <div>{/* <HeroSection /> */}</div>
         <Hero />
       </div>
 
