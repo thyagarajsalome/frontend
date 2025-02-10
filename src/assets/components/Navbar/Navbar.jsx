@@ -1,6 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Moon, Sun } from "lucide-react";
 import "./Navbar.css";
+
+// A simple throttle function to limit how often a function runs
+const throttle = (func, delay) => {
+  let inThrottle = false;
+  return (...args) => {
+    if (!inThrottle) {
+      func(...args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), delay);
+    }
+  };
+};
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +27,9 @@ const Navbar = () => {
     return false;
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
+  // Throttled scroll handler to update the active section
+  const handleScroll = useCallback(
+    throttle(() => {
       const sections = ["home", "skills", "projects", "experience", "contact"];
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
@@ -29,12 +42,17 @@ const Navbar = () => {
       if (currentSection) {
         setActiveSection(currentSection);
       }
-    };
+    }, 100),
+    []
+  );
 
-    window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    // Use a passive listener for improved scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [handleScroll]);
 
+  // Update the theme on mount and when isDark changes
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add("dark");
@@ -45,30 +63,35 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  // Memoized toggle functions
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
+  const toggleTheme = useCallback(() => {
+    setIsDark((prev) => !prev);
+  }, []);
 
-  const handleScrollToSection = (id) => {
+  const handleScrollToSection = useCallback((id) => {
     setMenuOpen(false);
     setActiveSection(id);
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }, []);
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
-    { id: "contact", label: "Contact" },
-  ];
+  // Memoize navItems so they aren’t recreated on every render
+  const navItems = useMemo(
+    () => [
+      { id: "home", label: "Home" },
+      { id: "skills", label: "Skills" },
+      { id: "projects", label: "Projects" },
+      { id: "experience", label: "Experience" },
+      { id: "contact", label: "Contact" },
+    ],
+    []
+  );
 
   return (
     <nav className="navbar">
@@ -108,4 +131,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);
