@@ -1,30 +1,35 @@
-import React from "react";
-import Navbar from "./assets/components/Navbar/Navbar";
-import Hero from "./assets/components/Hero/Hero";
-import Skills from "./assets/components/Skills/Skills";
-import Projects from "./assets/components/Projects/Projects";
-import Experience from "./assets/components/Experience/Experience";
-import Footer from "./assets/components/Footer/Footer";
+import React, { Suspense, lazy } from "react";
+import Navbar from "./assets/components/Navbar/Navbar"; // Critical component loaded immediately
+
+// Lazy load non-critical components
+const Hero = lazy(() => import("./assets/components/Hero/Hero"));
+const Skills = lazy(() => import("./assets/components/Skills/Skills"));
+const Projects = lazy(() => import("./assets/components/Projects/Projects"));
+const Experience = lazy(() =>
+  import("./assets/components/Experience/Experience")
+);
+const Footer = lazy(() => import("./assets/components/Footer/Footer"));
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <div id="home">
-        <div>{/* <HeroSection /> */}</div>
-        <Hero />
-      </div>
-
-      <div id="skills">
-        <Skills />
-      </div>
-      <div id="projects">
-        <Projects />
-      </div>
-      <div id="experience">
-        <Experience />
-      </div>
-      <Footer />
+      {/* Suspense will display fallback content while lazy components load */}
+      <Suspense fallback={<div>Loading content...</div>}>
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

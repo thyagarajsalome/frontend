@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./Hero.css";
 
 const Hero = () => {
-  const handleScrollToSection = (id) => {
+  // Memoize the scroll handler to avoid recreating it on every render
+  const handleScrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }, []);
 
   return (
     <section id="home" className="hero">
@@ -17,8 +18,8 @@ const Hero = () => {
         </h1>
         <p className="hero-subtitle">
           Hello! I'm Thyagaraj, a dedicated{" "}
-          <span className="highlight-text">Frontend Developer</span> and
-          <span className="highlight-text"> 3D Artist</span>. I specialize in
+          <span className="highlight-text">Frontend Developer</span> and{" "}
+          <span className="highlight-text">3D Artist</span>. I specialize in
           creating visually captivating and highly functional web applications,
           intuitive user experiences, and immersive 3D web environments.
           Blending creativity with technical proficiency, I bring innovative
@@ -36,4 +37,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);
