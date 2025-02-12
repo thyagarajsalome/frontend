@@ -10,6 +10,7 @@ const Skills = () => {
           <ul className="skills-list">
             <li className="skill-item">HTML & CSS</li>
             <li className="skill-item">JavaScript</li>
+            <li className="skill-item">Node js basic</li>
             <li className="skill-item">React</li>
             <li className="skill-item">API</li>
             <li className="skill-item">Three.js</li>

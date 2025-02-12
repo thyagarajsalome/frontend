@@ -51,6 +51,10 @@ const Projects = () => {
         title: "Interactive 3D Shoe",
         url: "https://interactive-3dshoe.vercel.app/",
       },
+      {
+        title: "Paint Visualization",
+        url: "https://toolwebsite.in/PaintVisualization.html",
+      },
     ],
   };
 
