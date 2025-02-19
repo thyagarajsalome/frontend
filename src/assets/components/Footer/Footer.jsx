@@ -14,14 +14,6 @@ const Footer = () => {
           >
             LinkedIn
           </a>
-          <a
-            href="https://github.com/thyagarajsalome"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-link"
-          >
-            GitHub
-          </a>
         </div>
         <p className="footer-text">
           &copy; 2024 Thyagaraja M. All rights reserved.

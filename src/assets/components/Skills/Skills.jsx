@@ -37,6 +37,8 @@ const Skills = () => {
             <li className="skill-item">3ds Max & Blender</li>
             <li className="skill-item">Vray Rendering</li>
             <li className="skill-item">Photoshop</li>
+            <li className="skill-item">Automation & Scripting</li>
+            <li className="skill-item">Search engine optimization (SEO)</li>
           </ul>
         </div>
       </div>
