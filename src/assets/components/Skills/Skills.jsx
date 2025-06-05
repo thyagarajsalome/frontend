@@ -11,7 +11,7 @@ const Skills = () => {
             <li className="skill-item">HTML & CSS</li>
             <li className="skill-item">JavaScript</li>
             <li className="skill-item">Node js basic</li>
-            <li className="skill-item">React</li>
+            <li className="skill-item">React Basic</li>
             <li className="skill-item">API</li>
             <li className="skill-item">Three.js</li>
             <li className="skill-item">Git</li>
@@ -19,14 +19,16 @@ const Skills = () => {
           </ul>
         </div>
         <div className="skill-category">
-          <h3 className="category-title">3D Artist</h3>
+          <h3 className="category-title">Backend Developer</h3>
           <ul className="skills-list">
-            <li className="skill-item">3D Design and Visualization</li>
-            <li className="skill-item">
-              Architectrual & Interior Design and Drafting
-            </li>
-            <li className="skill-item">Product Visualization</li>
-            <li className="skill-item">Lighting</li>
+            <li className="skill-item">Node, Express JS</li>
+            <li className="skill-item">Building RESTful APIs</li>
+            <li className="skill-item">CRUD Operation, Postman testing</li>
+            <li className="skill-item">Fetching API, fetching from database</li>
+            <li className="skill-item">HTTP Methods </li>
+            <li className="skill-item">Middleware</li>
+            <li className="skill-item">Basic Authentication</li>
+            <li className="skill-item">Handling Routes</li>
           </ul>
         </div>
         <div className="skill-category">
