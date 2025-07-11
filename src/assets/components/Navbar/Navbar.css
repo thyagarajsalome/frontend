@@ -46,7 +46,7 @@ html.dark {
 /* Controls (theme toggle and menu icon) */
 .navbar-controls {
   display: flex;
-  align-items: center;
+  align-items: right;
 }
 
 .theme-toggle {

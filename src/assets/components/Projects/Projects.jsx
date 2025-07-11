@@ -1,4 +1,3 @@
-import React from "react";
 import { ExternalLink } from "lucide-react";
 import "./Projects.css";
 
@@ -10,28 +9,17 @@ const Projects = () => {
         url: "https://toolwebsite.in/",
       },
       {
-        title: "Vega Design",
-        url: "https://vegadesign.netlify.app/",
+        title: "wallpaint",
+        url: "https://wallpaint.in/",
       },
-      {
-        title: "Vega Translate",
-        url: "https://vegatranslate.netlify.app/",
-      },
-      {
-        title: "Email Subscription",
-        url: "https://thyagarajsalome.github.io/emailSub/",
-      },
-      {
-        title: "Notes App",
-        url: "https://thyagarajsalome.github.io/Notes-app/",
-      },
-      {
-        title: "Quiz App",
-        url: "https://thyagarajsalome.github.io/quiz-app/",
-      },
+
       {
         title: "Image Search",
         url: "https://thyagarajsalome.github.io/image-Search/",
+      },
+      {
+        title: "Pixel Toolbox",
+        url: "https://pixel-toolbox.vercel.app/",
       },
     ],
     interactive3D: [
@@ -43,17 +31,10 @@ const Projects = () => {
         title: "3D Planet",
         url: "https://3dplanet.vercel.app/",
       },
-      {
-        title: "3D Projects",
-        url: "https://3dartist-portfolio.netlify.app/#home",
-      },
+
       {
         title: "Interactive 3D Shoe",
         url: "https://interactive-3dshoe.vercel.app/",
-      },
-      {
-        title: "Paint Visualization",
-        url: "https://toolwebsite.in/PaintVisualization.html",
       },
     ],
   };
