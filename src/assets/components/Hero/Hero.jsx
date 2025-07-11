@@ -18,14 +18,10 @@ const Hero = () => {
         </h1>
         <div>
           <p className="hero-subtitle">
-            Hello! I'm Thyagaraj, a dedicated{" "}
-            <span className="highlight-text">Frontend Developer</span> and{" "}
-            <span className="highlight-text">Backend Developer</span>. I
-            specialize in building visually captivating and highly functional
-            web applications, crafting intuitive user experiences, and
-            developing robust backend systems. Blending creativity with
-            technical proficiency, I bring innovative ideas to life in the
-            digital realm.
+            Hello! I'm Thyagaraj, a{" "}
+            <span className="highlight-text">Frontend Developer</span>. I build
+            beautiful, easy-to-use websites and web apps that work smoothly and
+            look great.
           </p>
         </div>
 
