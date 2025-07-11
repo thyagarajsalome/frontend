@@ -1,5 +1,21 @@
 import React from "react";
 import "./Skills.css";
+import {
+  Code,
+  Database,
+  Palette,
+  Globe,
+  Server,
+  GitBranch,
+  Github,
+  Cpu,
+  Layers,
+  Settings,
+  Search,
+  Camera,
+  Box,
+  Wrench,
+} from "lucide-react";
 
 const Skills = () => {
   return (
