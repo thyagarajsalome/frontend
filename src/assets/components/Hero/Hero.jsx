@@ -18,10 +18,17 @@ const Hero = () => {
         </h1>
         <div>
           <p className="hero-subtitle">
-            Hello! I'm Thyagaraj, a{" "}
-            <span className="highlight-text">Frontend Developer</span>. I build
-            beautiful, easy-to-use websites and web apps that work smoothly and
-            look great.
+            Hello! I'm Thyagaraj, an{" "}
+            <span className="highlight-text">
+              IT & Tech Developer | Full-Stack Web & Mobile Applications |
+              AI-Driven Solutions
+            </span>
+            . I build beautiful, easy-to-use websites and web apps that work
+            smoothly and look great. I have{" "}
+            <strong>
+              two mobile apps already available on the Google Play Store
+            </strong>
+            .
           </p>
         </div>
 
