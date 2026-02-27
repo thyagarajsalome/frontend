@@ -1,5 +1,6 @@
 import React from "react";
-import { ExternalLink, Globe, Smartphone, Box, Layout } from "lucide-react";
+// Added BookOpen icon for the new Study Hub section
+import { ExternalLink, Globe, Smartphone, Box, Layout, BookOpen } from "lucide-react"; 
 import "./Projects.css";
 
 const Projects = () => {
@@ -96,6 +97,30 @@ const Projects = () => {
         tags: ["Android TWA", "Web-to-Mobile", "App Deployment"],
       },
     ],
+    // --- NEW SECTION ADDED HERE ---
+    studyHub: [
+      {
+        title: "Data Structures & Algorithms (DSA)",
+        description:
+          "A dedicated workspace showcasing algorithm implementations, problem-solving approaches, and data structure visualizations.",
+        url: "https://learn-dsa-three.vercel.app/topic/arrays", // Replace with a link to a repo or document if you have one
+        tags: ["Vite", "React", "Algorithms", "Problem Solving"],
+      },
+      {
+        title: "System Analysis and Design (SAD)",
+        description:
+          "Documentation, architectural diagrams, and system flow designs demonstrating software engineering principles and planning.",
+        url: "#", // Replace with a link to a repo or document if you have one
+        tags: ["System Architecture", "UML", "Design Patterns"],
+      },
+      {
+        title: "Database Management Systems (DBMS)",
+        description:
+          "Explorations of relational schemas, entity-relationship models, complex SQL queries, and database normalization techniques.",
+        url: "#", // Replace with a link to a repo or document if you have one
+        tags: ["SQL", "Database Design", "RDBMS"],
+      },
+    ],
   };
 
   const renderProjectCard = (project, index) => (
@@ -126,7 +151,7 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title">Featured Projects & Studies</h2>
 
         <div className="category-group">
           <h3 className="category-header">
@@ -134,6 +159,16 @@ const Projects = () => {
           </h3>
           <div className="projects-grid">
             {projects.webDevelopment.map((p, i) => renderProjectCard(p, i))}
+          </div>
+        </div>
+        
+        {/* --- NEW STUDY HUB RENDERED HERE --- */}
+        <div className="category-group">
+          <h3 className="category-header">
+            <BookOpen size={20} /> Work & Study Hub
+          </h3>
+          <div className="projects-grid">
+            {projects.studyHub.map((p, i) => renderProjectCard(p, i))}
           </div>
         </div>
 

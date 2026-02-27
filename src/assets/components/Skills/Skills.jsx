@@ -2,66 +2,86 @@ import React from "react";
 import "./Skills.css";
 import {
   Code,
-  Database,
-  Palette,
-  Globe,
   Server,
-  GitBranch,
-  Github,
-  Cpu,
-  Layers,
-  Settings,
-  Search,
-  Camera,
-  Box,
   Wrench,
+  Github,
+  Layout,
+  Cpu,
+  Database,
+  Smartphone,
+  Search,
 } from "lucide-react";
 
 const Skills = () => {
   return (
     <section className="skills" id="skills">
-      <div className="skills-grid">
-        <div className="skill-category">
-          <h3 className="category-title">Frontend Developer</h3>
-          <ul className="skills-list">
-            <li className="skill-item">HTML & CSS</li>
-            <li className="skill-item">JavaScript</li>
-            <li className="skill-item">Node js</li>
-            <li className="skill-item">React</li>
-            <li className="skill-item">API</li>
-            <li className="skill-item">Three.js</li>
-            <li className="skill-item">Git</li>
-            <li className="skill-item">GitHub</li>
-          </ul>
-        </div>
-        <div className="skill-category">
-          <h3 className="category-title">Backend Developer</h3>
-          <ul className="skills-list">
-            <li className="skill-item">Node, Express JS</li>
-            <li className="skill-item">Building RESTful APIs</li>
-            <li className="skill-item">CRUD Operation, Postman testing</li>
-            <li className="skill-item">Fetching API, fetching from database</li>
-            <li className="skill-item">HTTP Methods </li>
-            <li className="skill-item">Middleware</li>
-            <li className="skill-item">Authentication</li>
-            <li className="skill-item">Handling Routes</li>
-          </ul>
-        </div>
-        <div className="skill-category">
-          <h3 className="category-title">Other Skills</h3>
-          <ul className="skills-list">
-            <li className="skill-item">AutoCAD Drafting</li>
-            <li className="skill-item">3D Modeling low-high poly</li>
-            <li className="skill-item">3ds Max & Blender</li>
-            <li className="skill-item">Vray Rendering</li>
-            <li className="skill-item">Photoshop</li>
-            <li className="skill-item">Automation & Scripting</li>
-            <li className="skill-item">Search engine optimization (SEO)</li>
-          </ul>
+      <div className="container">
+        <h2 className="section-title">Technical Expertise</h2>
+        <div className="skills-grid">
+          {/* Frontend Category */}
+          <div className="skill-category">
+            <h3 className="category-title">
+              <Code className="category-icon" size={24} /> Frontend Development
+            </h3>
+            <ul className="skills-list">
+              <li className="skill-item">React & React Three Fiber</li>
+              <li className="skill-item">JavaScript (ES6+)</li>
+              <li className="skill-item">Three.js & WebGL</li>
+              <li className="skill-item">HTML5 & CSS3 (Flex/Grid)</li>
+              <li className="skill-item">Responsive UI/UX Design</li>
+              <li className="skill-item">
+                <Github size={14} style={{ marginRight: "8px" }} />
+                Git & GitHub
+              </li>
+            </ul>
+          </div>
+
+          {/* Backend & Mobile Category */}
+          <div className="skill-category">
+            <h3 className="category-title">
+              <Server className="category-icon" size={24} /> Backend & Mobile
+            </h3>
+            <ul className="skills-list">
+              <li className="skill-item">Node.js & Express</li>
+              <li className="skill-item">
+                <Smartphone size={14} style={{ marginRight: "8px" }} />
+                Mobile App Deployment (TWA)
+              </li>
+              <li className="skill-item">
+                <Database size={14} style={{ marginRight: "8px" }} />
+                RESTful API Development
+              </li>
+              <li className="skill-item">CRUD Operations & Middleware</li>
+              <li className="skill-item">
+                <Cpu size={14} style={{ marginRight: "8px" }} />
+                AI-Driven Web Solutions
+              </li>
+              <li className="skill-item">Postman API Testing</li>
+            </ul>
+          </div>
+
+          {/* Technical & Creative Category */}
+          <div className="skill-category">
+            <h3 className="category-title">
+              <Wrench className="category-icon" size={24} /> Technical &
+              Creative
+            </h3>
+            <ul className="skills-list">
+              <li className="skill-item">3D Modeling (Blender/3ds Max)</li>
+              <li className="skill-item">AutoCAD Drafting (2D/3D)</li>
+              <li className="skill-item">Vray Rendering & Texturing</li>
+              <li className="skill-item">Photoshop Automation</li>
+              <li className="skill-item">
+                <Search size={14} style={{ marginRight: "8px" }} />
+                SEO Strategy & Optimization
+              </li>
+              <li className="skill-item">Automation & Scripting</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Skills;
+export default React.memo(Skills);
