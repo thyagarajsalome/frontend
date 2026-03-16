@@ -8,7 +8,7 @@ export const projectsData = {
   studyHub: [
     { title: "Data Structures & Algorithms (DSA)", description: "A dedicated workspace showcasing algorithm implementations, problem-solving approaches, and data structure visualizations.", url: "https://learn-dsa-three.vercel.app/topic/arrays", tags: ["Vite", "React", "Algorithms", "Problem Solving"] },
     { title: "System Analysis and Design (SAD)", description: "Documentation, architectural diagrams, and system flow designs demonstrating software engineering principles and planning.", url: "#", tags: ["System Architecture", "UML", "Design Patterns"] },
-    { title: "Database Management Systems (DBMS)", description: "Explorations of relational schemas, entity-relationship models, complex SQL queries, and database normalization techniques.", url: "#", tags: ["SQL", "Database Design", "RDBMS"] },
+    { title: "Database Management Systems (DBMS)", description: "Explorations of relational schemas, entity-relationship models, complex SQL queries, and database normalization techniques.", url: "https://dbms-hub.vercel.app/", tags: ["SQL", "Database Design", "RDBMS"] },
   ],
   landingPages: [
     { title: "AI Home Decorator Landing", description: "A conversion-focused landing page for the AI Home Decorator platform featuring modern UI and clear call-to-actions.", url: "https://ai-homedecorator-landing-01.vercel.app/", tags: ["React", "Marketing UI", "Conversion Optimization"] },
